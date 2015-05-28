@@ -39,6 +39,7 @@ var app = {
     },
     // Update DOM on a Received Event
     receivedEvent: function(id) {
+	alert("hoi");
         var parentElement = document.getElementById(id);
         var listeningElement = parentElement.querySelector('.listening');
         var receivedElement = parentElement.querySelector('.received');
@@ -82,4 +83,4 @@ var app = {
     }
 };
 
-//app.initialize();
+app.initialize();
