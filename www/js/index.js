@@ -33,30 +33,34 @@ var app = {
     // The scope of 'this' is the event. In order to call the 'receivedEvent'
     // function, we must explicitly call 'app.receivedEvent(...);'
     onDeviceReady: function() {
+	alert("labielo");
         app.receivedEvent('deviceready');
 	var pushNotification = window.plugins.pushNotification;
+	alert("ja");
 	pushNotification.register(app.successHandler, app.errorHandler,{"senderID":"434263688280","ecb":"app.onNotificationGCM"});
+	alert("nee");
     },
     // Update DOM on a Received Event
     receivedEvent: function(id) {
-	alert("hoi");
+	alert("ahoi");
         var parentElement = document.getElementById(id);
         var listeningElement = parentElement.querySelector('.listening');
         var receivedElement = parentElement.querySelector('.received');
-
         listeningElement.setAttribute('style', 'display:none;');
         receivedElement.setAttribute('style', 'display:block;');
-
+	//alert("rec");
         console.log('Received Event: ' + id);
+	//alert('id: ' + id);
     },
     // result contains any message sent from the plugin call
     successHandler: function(result) {
-	alert('Callback Success! Result = '+result)
+	alert('Callback Success! Result = '+result);
     },
     errorHandler:function(error) {
-    	alert(error);
+    	alert("error: " + error);
     },
     onNotificationGCM: function(e) {
+	alert("noti");
         switch( e.event )
         {
             case 'registered':
